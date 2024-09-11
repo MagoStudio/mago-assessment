@@ -7,4 +7,5 @@ body,
 #__next {
   @apply h-full;
   -webkit-font-smoothing: antialiased;
+  background-color: black;
 }

@@ -1,16 +1,20 @@
-import { GetStaticProps } from "next";
+import type { GetStaticProps } from "next";
 import fetchProjects from "../lib/fetch-projects";
+import Layout from "./layout";
 
-const Home = ({ projects }) => <div>Have fun!</div>;
+const Home = ({ projects }) => (
+	<Layout projects={projects}>
+		<div>Have fun!</div>
+	</Layout>
+);
 
 export const getStaticProps: GetStaticProps = async () => {
-  // fetch projects from the Database
+	// fetch projects from the Database
+	const projects = await fetchProjects();
 
-  const projects = await fetchProjects();
-
-  return {
-    props: { projects },
-  };
+	return {
+		props: { projects },
+	};
 };
 
 export default Home;
